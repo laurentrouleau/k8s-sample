@@ -1,19 +1,21 @@
 pipeline {
-agent any
-stages {
-         stage("Prepare"){ (3)
-       steps{
-         sh '''
-           echo "debut de mon script"
-           '''
-         }
-     }
+    agent any
 
-     stage ("Build"){
-       steps {
-         sh '''
-           echo "Building app"
-         '''
-       }
-     }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
 }
